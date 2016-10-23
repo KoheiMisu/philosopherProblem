@@ -5,6 +5,15 @@ import (
     "time"
 )
 
+
+/*
+ * フォークを管理する
+ * forループ中でリクエストを受け付ける
+ * チャネルchからリクエストを取り出して変数rにセットする
+ *
+ * n フォークの本数
+ * ch リクエストを受け付けるチャネル
+ */
 func Forks(n int, ch chan *structure.Req) {
     forkTable := make([]bool, n)
 
