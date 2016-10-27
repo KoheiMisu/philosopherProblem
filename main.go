@@ -9,7 +9,10 @@ import (
 func main() {
     ch := make(chan *structure.Req)
     quit := make(chan bool)
+
+    //サーバーの起動
     go server.Forks(5, ch)
+
     go person.Philosopher(1, 0, 1, ch, quit)
     go person.Philosopher(2, 1, 2, ch, quit)
     go person.Philosopher(3, 2, 3, ch, quit)

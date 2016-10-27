@@ -57,6 +57,11 @@ func GetFork(fork int, out chan *structure.Req, in chan bool) int {
     }
 }
 
+func GetFork1(fork int, out chan *structure.Req, in chan bool) bool {
+    out <- structure.NewReq(structure.GET, fork, in)
+    return <- in
+}
+
 func RetFork(fork int, out chan *structure.Req, in chan bool) bool {
     time.Sleep(100 * time.Millisecond)
     out <- structure.NewReq(structure.RET, fork, in)
